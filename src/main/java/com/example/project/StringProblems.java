@@ -28,8 +28,14 @@ public class StringProblems{
     // conCat("dog", "cat") → "dogcat"
     // conCat("abc", "") → "abc"
     public String conCat(String s1, String s2){
-        //implement code here
-        return "";
+        int s1Length = s1.length();
+        String s1LastChar = s1.substring(s1Length - 1);
+        String s2FirstChar = s2.substring(0, 1);
+
+        if (s1LastChar.equals(s2FirstChar)) {
+            s1 = s1.substring(0, s1Length - 2);
+        }
+        return s1 + s2;
     }
 
     // Given a string, return a version without the first 2 chars. 
@@ -39,8 +45,24 @@ public class StringProblems{
     // deFront("java") → "va"
     // deFront("away") → "aay"
     public String deFont(String s1){
-        //implement code here
-        return "";
+        String firstChar = s1.substring(0, 1);
+        String secondChar = s1.substring(1, 2);
+        String pastSecondChar = s1.substring(2);
+
+        if (firstChar.equals("a")) {
+
+            if (secondChar.equals("b")) {
+                return s1;
+
+            } else {
+                return firstChar + pastSecondChar;
+
+            } 
+        } else if (secondChar.equals("b")) {
+            return s1.substring(1);
+
+        }
+        return pastSecondChar;
     }
 
     
