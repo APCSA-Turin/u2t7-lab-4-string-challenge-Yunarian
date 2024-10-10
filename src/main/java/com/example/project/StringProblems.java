@@ -8,7 +8,15 @@ public class StringProblems{
     // endsLy("y") → false
     // endsLy("oddy") → false
     public boolean endsLy(String x){
-            //implement code here
+        int len = x.length();
+
+        if (len >= 2) {
+            String lastTwoLetters = x.substring(len - 2);
+            if (lastTwoLetters.toLowerCase().equals("ly")) {
+                return true;
+            }
+        }
+
         return false;
     }
 
