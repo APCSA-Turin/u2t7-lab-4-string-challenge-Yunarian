@@ -1,3 +1,5 @@
+package com.example.project;
+
 public class StringProblems{
     //empty constructor
     public StringProblems(){}
@@ -29,11 +31,18 @@ public class StringProblems{
     // conCat("abc", "") → "abc"
     public String conCat(String s1, String s2){
         int s1Length = s1.length();
-        String s1LastChar = s1.substring(s1Length - 1);
-        String s2FirstChar = s2.substring(0, 1);
-
+        int s2Length = s2.length();
+        String s1LastChar = "";
+        String s2FirstChar = "";
+        if (s1Length != 0) {
+            s1LastChar = s1.substring(s1Length - 1);
+        }
+        if (s2Length != 0) {
+           s2FirstChar = s2.substring(0, 1); 
+        }
+        
         if (s1LastChar.equals(s2FirstChar)) {
-            s1 = s1.substring(0, s1Length - 2);
+            s1 = s1.substring(0, s1Length - 1);
         }
         return s1 + s2;
     }
@@ -73,7 +82,16 @@ public class StringProblems{
     // withoutX("xHi") → "Hi"
     // withoutX("Hxix") → "Hxi"
     public String withoutX(String s1){
-        return "";
+        int s1Length = s1.length();
+        if (s1.substring(0, 1).equals("x")) {
+            s1 = s1.substring(1);
+            s1Length--;
+        } 
+
+        if (s1.substring(s1Length - 1).equals("x")) {
+            s1 = s1.substring(0, s1Length - 1);
+        }
+        return s1;
     }
 
     // Given a string str, if the string starts with "f" return "Fizz".
@@ -84,7 +102,14 @@ public class StringProblems{
     // fizzString("dib") → "Buzz"
     // fizzString("fib") → "FizzBuzz"
     public String fizzString(String s1){
-        return "";
+        String returnedString = "";
+        if (s1.substring(0, 1).equals("f")) {
+            returnedString += "Fizz";
+        } 
+        if (s1.substring(s1.length() - 1).equals("b")) {
+            returnedString += "Buzz";
+        }
+        return returnedString;
     }
 
     // Given an int n, return the string form of the number followed 
@@ -97,6 +122,18 @@ public class StringProblems{
     // fizzString2(2) → "2!"
     // fizzString2(3) → "Fizz!"
     public String fizzString2(int x){
-        return "";
+        String returnedString = "";
+        if (x % 3 == 0) {
+            returnedString += "Fizz";
+        }
+        if (x % 5 == 0) {
+            returnedString += "Buzz";
+
+        } 
+        if (x % 3 != 0 & x % 5 != 0) {
+            return x + "!";
+
+        }
+        return returnedString + "!";
     }
 }
